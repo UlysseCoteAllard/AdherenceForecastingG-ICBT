@@ -82,7 +82,7 @@ if __name__ == '__main__':
     min_length = 7
     max_length = 42
 
-    use_sample_weight = False
+    use_sample_weight = True
     path_results = "../Results/56_days_batch_64_var_len_self_attention_no_weight.txt"
 
     df = pd.read_csv("../Dataset/G-ICBT_AnonymizedInteractionDataset.csv")
@@ -122,8 +122,6 @@ if __name__ == '__main__':
                                                                         df_exploration=dataframe_users_exploration,
                                                                         min_length=min_length,
                                                                         batch_size=64)
-            print(weight_class)
-            weight_class[0] = 1.
             print(weight_class)
             model = SelfAttentionModel(n_features_input=2, nhead=nhead,
                                        hidden_features_size_before_attention=hidden_features_size_before_attention,
